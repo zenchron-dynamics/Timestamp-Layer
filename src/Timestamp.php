@@ -13,8 +13,16 @@ use Doctrine\ORM\Mapping as ORM;
 
 trait Timestamp
 {
+    /**
+     * @var \DateTime
+     * @ORM\Column(type="datetime")
+     */
     private $createdAt;
 
+    /**
+     * @var \DateTime
+     * @ORM\Column(type="datetime")
+     */
     private $updatedAt;
 
     public function getUpdatedAt(): \DateTime
