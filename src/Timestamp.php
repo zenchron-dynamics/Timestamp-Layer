@@ -9,6 +9,8 @@
 namespace Zenchron\TimestampLayer;
 
 
+use Doctrine\ORM\Mapping as ORM;
+
 trait Timestamp
 {
     private $createdAt;
@@ -26,6 +28,9 @@ trait Timestamp
     }
 
     /**
+     * Get triggered only on insert
+     *
+     * @ORM\PrePersist()
      * @throws \Exception
      */
     public function onPrePersist()
@@ -35,6 +40,9 @@ trait Timestamp
     }
 
     /**
+     * Gets triggered every time when you update the entity
+     *
+     * @ORM\PreUpdate()
      * @throws \Exception
      */
     public function onPreUpdate()
